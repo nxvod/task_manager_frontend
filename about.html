@@ -1,0 +1,103 @@
+FileName: MultipleFiles/about.html
+FileContents: <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - ProductivityHub</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Basic styling for content pages */
+        .content-page {
+            max-width: 800px;
+            margin: 4rem auto;
+            padding: 2rem;
+            background: white;
+            border-radius: 0.75rem;
+            border: 1px solid #e2e8f0;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+        }
+        .content-page h2 {
+            font-size: 2rem;
+            color: #1e293b;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+        .content-page h3 {
+            font-size: 1.5rem;
+            color: #1e293b;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+        }
+        .content-page p {
+            font-size: 1rem;
+            line-height: 1.7;
+            color: #475569;
+            margin-bottom: 1rem;
+        }
+        .content-page ul {
+            list-style: disc;
+            margin-left: 1.5rem;
+            margin-bottom: 1rem;
+            color: #475569;
+        }
+        .content-page ul li {
+            margin-bottom: 0.5rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="app-container">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-content">
+                <h1 class="logo">
+                    <span class="logo-icon">📋</span>
+                    ProductivityHub
+                </h1>
+                <nav class="main-nav">
+                    <ul class="main-nav-list">
+                        <li><a href="index.html" class="main-nav-link">Home</a></li>
+                        <li><a href="about.html" class="main-nav-link active">About</a></li>
+                        <li><a href="contact.html" class="main-nav-link">Contact</a></li>
+                    </ul>
+                </nav>
+                <div class="header-actions">
+                    <button class="btn btn-primary" id="addTaskBtn">
+                        <span class="btn-icon">+</span>
+                        Add Task
+                    </button>
+                    <button class="btn btn-secondary" id="exportBtn">Export</button>
+                </div>
+            </div>
+        </header>
+
+        <main class="main-content">
+            <section class="content-page">
+                <h2>About ProductivityHub</h2>
+                <p>Welcome to ProductivityHub, your ultimate solution for seamless task management and project organization. In today's fast-paced world, staying on top of your tasks and projects can be a challenge. That's why we built ProductivityHub – to simplify your workflow, enhance your focus, and help you achieve your goals with ease.</p>
+
+                <h3>Our Mission</h3>
+                <p>Our mission is to empower individuals and teams to maximize their productivity. We believe that effective task management shouldn't be complicated. By providing an intuitive, feature-rich, and user-friendly platform, we aim to transform the way you work, making every day more productive and less stressful.</p>
+
+                <h3>Key Features</h3>
+                <ul>
+                    <li><strong>Intuitive Task Creation:</strong> Quickly add tasks with titles, descriptions, priorities, and due dates.</li>
+                    <li><strong>Flexible Task Organization:</strong> Categorize tasks by projects, views (All, Today, Upcoming, Completed), and custom filters.</li>
+                    <li><strong>Project Management:</strong> Create and manage multiple projects with custom colors for easy identification.</li>
+                    <li><strong>Progress Tracking:</strong> Monitor your daily progress with a visual progress ring and task counts.</li>
+                    <li><strong>Data Persistence:</strong> All your tasks and projects are saved locally in your browser, ensuring your data is always there when you return.</li>
+                    <li><strong>Export Functionality:</strong> Easily export your data for backup or sharing.</li>
+                </ul>
+
+                <h3>Our Vision</h3>
+                <p>We envision a world where everyone can achieve their full potential without being overwhelmed by their to-do lists. ProductivityHub is continuously evolving, with new features and improvements planned to meet the growing demands of modern productivity. Join us on this journey to a more organized and productive life!</p>
+
+                <p>Thank you for choosing ProductivityHub. Let's get things done!</p>
+            </section>
+        </main>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

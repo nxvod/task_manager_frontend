@@ -1,0 +1,207 @@
+FileName: MultipleFiles/index.html
+FileContents: <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ProductivityHub - Task Management</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-content">
+                <h1 class="logo">
+                    <span class="logo-icon">📋</span>
+                    ProductivityHub
+                </h1>
+                <nav class="main-nav">
+                    <ul class="main-nav-list">
+                        <li><a href="index.html" class="main-nav-link active">Home</a></li>
+                        <li><a href="about.html" class="main-nav-link">About</a></li>
+                        <li><a href="contact.html" class="main-nav-link">Contact</a></li>
+                    </ul>
+                </nav>
+                <div class="header-actions">
+                    <button class="btn btn-primary" id="addTaskBtn">
+                        <span class="btn-icon">+</span>
+                        Add Task
+                    </button>
+                    <button class="btn btn-secondary" id="exportBtn">Export</button>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Sidebar -->
+            <aside class="sidebar">
+                <nav class="nav">
+                    <div class="nav-section">
+                        <h3 class="nav-title">Views</h3>
+                        <ul class="nav-list">
+                            <li><a href="#" class="nav-link active" data-view="all">All Tasks</a></li>
+                            <li><a href="#" class="nav-link" data-view="today">Today</a></li>
+                            <li><a href="#" class="nav-link" data-view="upcoming">Upcoming</a></li>
+                            <li><a href="#" class="nav-link" data-view="completed">Completed</a></li>
+                        </ul>
+                    </div>
+                    <div class="nav-section">
+                        <h3 class="nav-title">Projects</h3>
+                        <ul class="nav-list" id="projectsList">
+                            <!-- Projects will be dynamically added here -->
+                        </ul>
+                        <button class="btn btn-ghost btn-sm" id="addProjectBtn">+ Add Project</button>
+                    </div>
+                </nav>
+                
+                <!-- Stats -->
+                <div class="stats-card">
+                    <h3 class="stats-title">Today's Progress</h3>
+                    <div class="progress-ring">
+                        <svg class="progress-svg" width="80" height="80">
+                            <circle class="progress-bg" cx="40" cy="40" r="35"></circle>
+                            <circle class="progress-fill" cx="40" cy="40" r="35" id="progressCircle"></circle>
+                        </svg>
+                        <div class="progress-text" id="progressText">0%</div>
+                    </div>
+                    <div class="stats-info">
+                        <div class="stat-item">
+                            <span class="stat-number" id="completedCount">0</span>
+                            <span class="stat-label">Completed</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number" id="totalCount">0</span>
+                            <span class="stat-label">Total</span>
+                        </div>
+                    </div>
+                </div>
+            </aside>
+
+            <!-- Task Area -->
+            <section class="task-area">
+                <div class="task-header">
+                    <h2 class="task-title" id="currentViewTitle">All Tasks</h2>
+                    <div class="task-filters">
+                        <select class="filter-select" id="priorityFilter">
+                            <option value="">All Priorities</option>
+                            <option value="high">High Priority</option>
+                            <option value="medium">Medium Priority</option>
+                            <option value="low">Low Priority</option>
+                        </select>
+                        <select class="filter-select" id="statusFilter">
+                            <option value="">All Status</option>
+                            <option value="pending">Pending</option>
+                            <option value="in-progress">In Progress</option>
+                            <option value="completed">Completed</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="task-list" id="taskList">
+                    <!-- Tasks will be dynamically added here -->
+                </div>
+
+                <div class="empty-state" id="emptyState" style="display: none;">
+                    <div class="empty-icon">📝</div>
+                    <h3>No tasks found</h3>
+                    <p>Create your first task to get started with productivity management.</p>
+                    <button class="btn btn-primary" onclick="openTaskModal()">Create Task</button>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Task Modal -->
+    <div class="modal-overlay" id="taskModal">
+        <div class="modal">
+            <div class="modal-header">
+                <h3 class="modal-title" id="modalTitle">Add New Task</h3>
+                <button class="modal-close" id="closeModal">&times;</button>
+            </div>
+            <form class="modal-body" id="taskForm">
+                <div class="form-group">
+                    <label class="form-label">Task Title</label>
+                    <input type="text" class="form-input" id="taskTitle" placeholder="Enter task title..." required>
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label">Description</label>
+                    <textarea class="form-textarea" id="taskDescription" placeholder="Enter task description..." rows="3"></textarea>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label class="form-label">Priority</label>
+                        <select class="form-select" id="taskPriority">
+                            <option value="low">Low Priority</option>
+                            <option value="medium" selected>Medium Priority</option>
+                            <option value="high">High Priority</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label">Status</label>
+                        <select class="form-select" id="taskStatus">
+                            <option value="pending" selected>Pending</option>
+                            <option value="in-progress">In Progress</option>
+                            <option value="completed">Completed</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label class="form-label">Due Date</label>
+                        <input type="date" class="form-input" id="taskDueDate">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label">Project</label>
+                        <select class="form-select" id="taskProject">
+                            <option value="">No Project</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="form-actions">
+                    <button type="button" class="btn btn-secondary" id="cancelBtn">Cancel</button>
+                    <button type="submit" class="btn btn-primary" id="saveBtn">Save Task</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Project Modal -->
+    <div class="modal-overlay" id="projectModal">
+        <div class="modal modal-sm">
+            <div class="modal-header">
+                <h3 class="modal-title">Add New Project</h3>
+                <button class="modal-close" id="closeProjectModal">&times;</button>
+            </div>
+            <form class="modal-body" id="projectForm">
+                <div class="form-group">
+                    <label class="form-label">Project Name</label>
+                    <input type="text" class="form-input" id="projectName" placeholder="Enter project name..." required>
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label">Color</label>
+                    <div class="color-picker">
+                        <input type="color" class="color-input" id="projectColor" value="#3b82f6">
+                    </div>
+                </div>
+                
+                <div class="form-actions">
+                    <button type="button" class="btn btn-secondary" id="cancelProjectBtn">Cancel</button>
+                    <button type="submit" class="btn btn-primary">Create Project</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

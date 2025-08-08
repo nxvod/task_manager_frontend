@@ -1,0 +1,111 @@
+FileName: MultipleFiles/contact.html
+FileContents: <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - ProductivityHub</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Basic styling for content pages */
+        .content-page {
+            max-width: 800px;
+            margin: 4rem auto;
+            padding: 2rem;
+            background: white;
+            border-radius: 0.75rem;
+            border: 1px solid #e2e8f0;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+        }
+        .content-page h2 {
+            font-size: 2rem;
+            color: #1e293b;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+        .content-page p {
+            font-size: 1rem;
+            line-height: 1.7;
+            color: #475569;
+            margin-bottom: 1rem;
+        }
+        .contact-info ul {
+            list-style: none;
+            padding: 0;
+        }
+        .contact-info li {
+            margin-bottom: 0.75rem;
+            color: #475569;
+        }
+        .contact-info li strong {
+            color: #1e293b;
+        }
+    </style>
+</head>
+<body>
+    <div class="app-container">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-content">
+                <h1 class="logo">
+                    <span class="logo-icon">📋</span>
+                    ProductivityHub
+                </h1>
+                <nav class="main-nav">
+                    <ul class="main-nav-list">
+                        <li><a href="index.html" class="main-nav-link">Home</a></li>
+                        <li><a href="about.html" class="main-nav-link">About</a></li>
+                        <li><a href="contact.html" class="main-nav-link active">Contact</a></li>
+                    </ul>
+                </nav>
+                <div class="header-actions">
+                    <button class="btn btn-primary" id="addTaskBtn">
+                        <span class="btn-icon">+</span>
+                        Add Task
+                    </button>
+                    <button class="btn btn-secondary" id="exportBtn">Export</button>
+                </div>
+            </div>
+        </header>
+
+        <main class="main-content">
+            <section class="content-page">
+                <h2>Contact Us</h2>
+                <p>We'd love to hear from you! Whether you have a question about features, pricing, need a demo, or anything else, our team is ready to answer all your questions.</p>
+                
+                <div class="contact-info">
+                    <ul>
+                        <li><strong>Email:</strong> support@productivityhub.com</li>
+                        <li><strong>Phone:</strong> +1 (555) 123-4567</li>
+                        <li><strong>Address:</strong> 123 Productivity Lane, Suite 400, Efficiency City, PC 90210</li>
+                        <li><strong>Business Hours:</strong> Monday - Friday, 9:00 AM - 5:00 PM EST</li>
+                    </ul>
+                </div>
+
+                <p>You can also reach out to us through our social media channels or fill out the form below (form functionality not implemented in this demo).</p>
+                
+                <!-- Placeholder for a contact form -->
+                <form style="margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid #e2e8f0;">
+                    <div class="form-group">
+                        <label class="form-label" for="name">Your Name</label>
+                        <input type="text" class="form-input" id="name" placeholder="Enter your name">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="email">Your Email</label>
+                        <input type="email" class="form-input" id="email" placeholder="Enter your email">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="message">Message</label>
+                        <textarea class="form-textarea" id="message" rows="5" placeholder="Your message..."></textarea>
+                    </div>
+                    <div class="form-actions" style="border-top: none; padding-top: 0;">
+                        <button type="submit" class="btn btn-primary">Send Message</button>
+                    </div>
+                </form>
+            </section>
+        </main>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
